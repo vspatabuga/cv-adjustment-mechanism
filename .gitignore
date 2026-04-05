@@ -1,0 +1,43 @@
+# Data files (CV mentah dari GDrive)
+data/source/*
+!data/source/.gitkeep
+
+# Additional files (user uploads)
+data/additional/*
+!data/additional/.gitkeep
+!data/additional/certificates/.gitkeep
+!data/additional/experience/.gitkeep
+!data/additional/skills/.gitkeep
+!data/additional/projects/.gitkeep
+
+# Output files (per-job folders, all gitignored)
+output/*
+!output/.gitkeep
+!output/general/.gitkeep
+!output/targeted/.gitkeep
+
+# Build artifacts (inside job folders)
+output/targeted/**/*.aux
+output/targeted/**/*.log
+output/targeted/**/*.out
+output/targeted/**/*.png
+
+# Build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+
+# Build directory
+.build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env

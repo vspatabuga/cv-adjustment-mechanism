@@ -1,0 +1,256 @@
+% ================================================================
+% CV — Virgiawan Sagarmata Patabuga
+% ATS-friendly, single-column, standard headings
+% Compile: xelatex <file>.tex
+% ================================================================
+
+\documentclass[10.5pt,a4paper]{article}
+
+% --- Packages ---
+\usepackage[margin=0.6in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{setspace}
+
+% --- Font (ATS-safe standard fonts) ---
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+
+% --- Colors ---
+\definecolor{primary}{HTML}{000000}
+\definecolor{linkcolor}{HTML}{000080}
+
+% --- Hyperlinks ---
+\hypersetup{
+    colorlinks=true,
+    urlcolor=linkcolor,
+    linkcolor=linkcolor,
+    pdftitle={CV - Virgiawan Sagarmata Patabuga},
+    pdfauthor={Virgiawan Sagarmata Patabuga}
+}
+
+% --- Section formatting: uppercase + rule ---
+\titleformat{\section}
+    {\normalsize\bfseries\uppercase}
+    {}{0em}
+    {}
+    [\titlerule]
+
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+% --- Spacing ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+% --- Custom commands ---
+\newcommand{\headerline}[1]{%
+    {\centering\large #1\par}
+}
+
+\newcommand{\contactinfo}[1]{%
+    {\centering #1\par}
+    \vspace{1pt}
+}
+
+\newcommand{\jobentry}[4]{%
+    \vspace{1pt}
+    \textbf{#1} \hfill {#2} \\
+    \textit{#3} \hfill \textit{#4}
+}
+
+\newcommand{\eduentry}[3]{%
+    \vspace{1pt}
+    \textbf{#1} \hfill {#2} \\
+    \textit{#3}
+}
+
+\newcommand{\certentry}[2]{%
+    \textbf{#1} \hfill \textit{#2}
+}
+
+\newcommand{\skillcat}[2]{%
+    \textbf{#1:} #2
+}
+
+\newcommand{\projectentry}[2]{%
+    \vspace{1pt}
+    \textbf{#1} \\
+    #2
+}
+
+% ================================================================
+\begin{document}
+
+% ================================================================
+% HEADER
+% ================================================================
+\headerline{\textbf{\LARGE Virgiawan Sagarmata Patabuga}}
+\contactinfo{%
+    +62 896-9266-6444 \quad|\quad cx@vspatabuga.io \quad|\quad Tangerang Selatan, Indonesia\\
+    \href{https://vspatabuga.io}{vspatabuga.io} \quad|\quad \href{https://linkedin.com/in/vspatabuga}{linkedin.com/in/vspatabuga} \quad|\quad \href{https://github.com/vspatabuga}{github.com/vspatabuga}%
+}
+
+\vspace{3pt}
+
+% ================================================================
+% PROFILE
+% ================================================================
+\section*{Profile}
+
+System administrator with hands-on experience in Linux server management, cloud infrastructure (GCP, Cloudflare), and Infrastructure-as-Code (Terraform). Built containerized deployments, CI/CD pipelines, and AI-Ops orchestration systems. CCNA and Google Cloud certified.
+
+% ================================================================
+% TECHNICAL SKILLS
+% ================================================================
+\section*{Technical Skills}
+
+\skillcat{Cloud}{Google Cloud Platform (GCP), Cloudflare, Azure, AWS}
+
+\skillcat{Infrastructure}{Terraform, Proxmox VE, Docker, Docker Compose}
+
+\skillcat{Networking}{Cloudflare Tunnel, Nginx, WireGuard, Tailscale, MikroTik, DNS Management}
+
+\skillcat{Security}{Cloudflare Access (Zero Trust), Cloudflare Gateway, Vaultwarden, OAuth, JWT, TLS/SSL}
+
+\skillcat{Programming}{Python, Bash, TypeScript, JavaScript, Go, Kotlin}
+
+\skillcat{Databases}{Cloudflare D1, Cloudflare R2, PostgreSQL, MySQL, SQLite, Qdrant (Vector DB)}
+
+\skillcat{CI/CD}{GitHub Actions, GitOps, Automated Deployment}
+
+\skillcat{AI/ML Ops}{n8n, Ollama, Arize Phoenix, Dagu Workflow Engine}
+
+\skillcat{Operating Systems}{Linux, Ubuntu, Alpine Linux, NixOS}
+
+% ================================================================
+% EXPERIENCE
+% ================================================================
+\section*{Experience}
+
+\jobentry{Principal System Architect}{Oct 2025 -- Present}
+{Patabuga Enterprise}{Jakarta, Indonesia}
+\begin{itemize}[leftmargin=*,nosep,topsep=2pt,itemsep=0.5pt]
+    \item Designed multi-cloud infrastructure architecture across GCP, Azure, and Cloudflare using Terraform IaC
+    \item Provisioned 8 DNS zones and Cloudflare Zero Trust access organization via Terraform
+    \item Deployed containerized services on resource-constrained environments (GCP e2-micro, 1GB RAM) with memory limits as low as 50MB
+    \item Built AI agent orchestration systems using n8n, Ollama, and Arize Phoenix for local LLM workflow management
+    \item Established CI/CD pipelines with 36+ GitHub Actions workflows across 17 repositories
+\end{itemize}
+
+\vspace{3pt}
+
+\jobentry{Cloud Computing Trainee}{Jan 2022 -- Aug 2022}
+{Bangkit Academy (Google, Tokopedia, Gojek, Traveloka)}{Remote}
+\begin{itemize}[leftmargin=*,nosep,topsep=2pt,itemsep=0.5pt]
+    \item Completed Cloud Computing training with competency certificate in Specializing Cloud Computing and Architecting with Google Compute Engine
+    \item Created capstone project ``Kalpataru'' --- a community waste reduction application deployed on Google Cloud Platform
+\end{itemize}
+
+\vspace{3pt}
+
+\jobentry{Junior System Administrator}{Sep 2021 -- Jan 2022}
+{Informatika UMM}{Malang, East Java, Indonesia}
+\begin{itemize}[leftmargin=*,nosep,topsep=2pt,itemsep=0.5pt]
+    \item Managed Linux server infrastructure in Proxmox VE environment, ensuring uptime and security for academic systems
+    \item Configured server security, monitored performance, and performed rapid troubleshooting to minimize downtime
+    \item Supported web application deployments and managed backup and recovery procedures
+\end{itemize}
+
+\vspace{3pt}
+
+\jobentry{Laboratory Assistant Captain}{Apr 2020 -- Aug 2022}
+{Informatics Laboratory UMM}{Malang, East Java, Indonesia}
+\begin{itemize}[leftmargin=*,nosep,topsep=2pt,itemsep=0.5pt]
+    \item Conducted practicum activities following Standardization of Practical Assessment Modules and Indicators
+    \item Entrusted as Laboratory Assistant Captain for the Class of 2019
+    \item Contributed to laboratory structure development at Informatics Laboratory Infotech
+\end{itemize}
+
+\vspace{3pt}
+
+\jobentry{Learning Facilitator}{Apr 2021 -- Mar 2022}
+{LSO KALIBER UMM (Linux \& Cyber Security)}{Malang, East Java, Indonesia}
+\begin{itemize}[leftmargin=*,nosep,topsep=2pt,itemsep=0.5pt]
+    \item Designed and delivered technical training on Cyber Security fundamentals and Linux operating system
+    \item Developed structured learning modules and provided one-on-one mentorship
+\end{itemize}
+
+\vspace{3pt}
+
+\jobentry{Research Staff}{Oct 2021 -- Jan 2022}
+{Informatics Laboratory UMM}{Malang, East Java, Indonesia}
+\begin{itemize}[leftmargin=*,nosep,topsep=2pt,itemsep=0.5pt]
+    \item Developed and tested the practicum system
+    \item Contributed to UI/UX development in MiLab project for practicum system digitization
+    \item Designed network topology using MikroTik in the laboratory area
+\end{itemize}
+
+\vspace{3pt}
+
+\jobentry{Information System Staff}{Feb 2021 -- Sep 2021}
+{Informatics Laboratory UMM}{Malang, East Java, Indonesia}
+\begin{itemize}[leftmargin=*,nosep,topsep=2pt,itemsep=0.5pt]
+    \item Contributed to development of SIMPONIA --- Publication System for Informatics Student Work
+\end{itemize}
+
+% ================================================================
+% PROJECTS
+% ================================================================
+\section*{Projects}
+
+\projectentry{PES Infrastructure}{Full Terraform infrastructure managing 8 DNS zones, Cloudflare Zero Trust organization, Azure edge VM with WireGuard, GCP production engine, and Cloudflare Gateway.}
+\textit{Technologies: Terraform, Cloudflare, Azure, GCP, WireGuard, Bash}
+
+\vspace{1pt}
+
+\projectentry{PES Production Engine}{Production automation engine running on GCP e2-micro (1GB RAM) with containerized n8n, Dagu workflow orchestration, and Rust-based AI agent --- optimized for extreme resource constraints.}
+\textit{Technologies: Docker, n8n, Dagu, GCP, Cloudflare Tunnel, Cloudflare D1, Cloudflare R2}
+
+\vspace{1pt}
+
+\projectentry{Zero Trust Network}{Identity-centric network architecture with Cloudflare Tunnels, WireGuard mesh encryption, Tailscale identity-based access, and Vaultwarden secret management.}
+\textit{Technologies: Docker, Cloudflare Tunnel, WireGuard, Tailscale, Nginx, Vaultwarden}
+
+\vspace{1pt}
+
+\projectentry{AI Governance Orchestrator}{Multi-node Zero-Trust AI architecture managing private LLM workflows via OpenClaw, Ollama, and Arize Phoenix with observability and audit trails.}
+\textit{Technologies: Docker, n8n, Ollama, Qdrant, Arize Phoenix, Nginx, Python, FastAPI}
+
+\vspace{1pt}
+
+\projectentry{Sovereign Cloud Fabric}{Multi-cloud infrastructure abstraction ensuring control plane independence from any single provider across Azure, GCP, and AWS.}
+\textit{Technologies: Terraform, Azure, GCP, AWS, Docker, Nginx}
+
+% ================================================================
+% EDUCATION
+% ================================================================
+\section*{Education}
+
+\eduentry{Sarjana Komputer (S.Kom) --- Teknik Informatika}{Sep 2019 -- Oct 2025}
+{Universitas Muhammadiyah Malang}
+
+% ================================================================
+% CERTIFICATIONS
+% ================================================================
+\section*{Certifications}
+
+\certentry{CCNA: Switching, Routing, and Wireless Essentials}{Cisco}
+
+\certentry{Architecting with Google Compute Engine}{Coursera / Google Cloud}
+
+\certentry{Specializing in Cloud Computing}{Bangkit Academy}
+
+\certentry{Memulai Pemrograman dengan Python}{Dicoding}
+
+% ================================================================
+% LANGUAGES
+% ================================================================
+\section*{Languages}
+
+Indonesian (Native) \quad|\quad English (Professional Working Proficiency, B2)
+
+\end{document}
