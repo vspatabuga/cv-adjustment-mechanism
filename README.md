@@ -69,12 +69,11 @@ All CV data is in `data/master.json`. This is the **single source of truth**. Th
 2. Run `make general` to regenerate the general CV
 3. Or provide a job description to generate a targeted CV
 
-## Rules
+## Security & Integrity
+- CV generation strictly uses `data/master.json` as the single source of truth.
+- Do not check secrets (`data/source/`, targeted outputs, or `.env`) into GitHub.
+- Report vulnerabilities via GitHub Issue with label `security` or email `sc@vspatabuga.io`.
+- Maintain transparency: no fabricated metrics, no inflated roles.
 
-When generating CVs:
-1. Only use data from `data/master.json`
-2. Never add skills not listed in master data
-3. Never inflate roles or change dates
-4. Never fabricate metrics
-5. Highlight relevant experience for the target job
-6. Omit irrelevant items (but don't delete from master)
+## License
+Apache License 2.0 © 2026 Virgiawan Sagarmata Patabuga.
