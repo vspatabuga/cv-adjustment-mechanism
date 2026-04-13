@@ -37,13 +37,14 @@ All CV data comes from **`data/master.json`** — single source of truth. Never 
 2. PROFILE         (3-4 lines, keyword-rich, concrete)
 3. TECHNICAL SKILLS (grouped by category, curated not exhaustive)
 4. EXPERIENCE      (reverse chronological, most relevant first)
-5. PROJECTS        (only those that strengthen the job match)
-6. EDUCATION       (degree, institution, dates)
-7. CERTIFICATIONS  (all relevant certifications)
-8. LANGUAGES       (optional, include if relevant)
+5. TRAINING        (relevant training programs, reverse chronological)
+6. PROJECTS        (only those that strengthen the job match)
+7. EDUCATION       (degree, institution, dates)
+8. CERTIFICATIONS  (all relevant certifications)
+9. LANGUAGES       (optional, include if relevant)
 ```
 
-**Why this order:** For fresh graduates, skills and projects are the strongest evidence. Education moves below experience because the candidate has real work history.
+**Why this order:** For fresh graduates, skills and projects are the strongest evidence. Experience comes before Training because the candidate has real work history. Training can be omitted if certifications are sufficient.
 
 ### Profile Summary Rules (2026 Standard)
 - **Max 3-4 lines** — recruiters scan in 6 seconds
@@ -79,9 +80,14 @@ All CV data comes from **`data/master.json`** — single source of truth. Never 
 - **Always include**: Most recent role
 - **Always include**: Roles directly relevant to the job
 - **Include**: Roles that demonstrate required skills
-- **May omit**: Very short trainee roles (1 month) if not relevant
 - **May omit**: Roles older than 5 years if not relevant
 - **Never omit**: Any role if user explicitly requests full CV
+
+### Training Selection Rules
+- **Include**: Training programs that provide relevant skills for the target job
+- **Highlight**: Certifications earned from training (move to Certifications section)
+- **May omit**: Training older than 3 years if not directly relevant to the job
+- **Note**: Trainee roles are in `training` section, not `experience`
 
 ### Project Selection Rules
 - **Include only if they strengthen the match** — "one strong project beats five half-finished repos" (CVailor 2026)
@@ -107,24 +113,27 @@ Match job requirements against master data:
 
 ### Step 3: Generate CV
 Output format:
-1. **Markdown version** → `output/targeted/{position}-{date}.md`
-2. **LaTeX version** → `output/targeted/{position}-{date}.tex`
+1. **Markdown version** → `output/targeted/{position}/VS-Patabuga_{position}.md`
+2. **LaTeX version** → `output/targeted/{position}/VS-Patabuga_{position}.tex`
 3. **PDF** → compile LaTeX to PDF (if build tools available)
+
+**File Naming Convention:** `{FullName}_{PositionInKebabCase}`
+- Example: `VS-Patabuga_service-desk-engineer.md`
 
 ### Step 4: Output Structure
 ```
-output/targeted/
-├── cloud-engineer-2026-04-05.md
-├── cloud-engineer-2026-04-05.tex
-└── cloud-engineer-2026-04-05.pdf
+output/targeted/{position}/
+├── VS-Patabuga_{position}.md
+├── VS-Patabuga_{position}.tex
+└── VS-Patabuga_{position}.pdf
 ```
 
 ## CV Structure (Standard — 2026 ATS-Optimized)
 
 ```
 [Full Name]
-[Phone] | [Email] | [Location]
-[Website] | [LinkedIn] | [GitHub]
+[Location]
+[Phone] | [Email] |[Website] | [LinkedIn] | [GitHub]
 
 PROFILE
 [3-4 lines, keyword-rich, concrete]
@@ -138,6 +147,11 @@ EXPERIENCE
 [Selected roles, reverse chronological]
 - Title, Company, Dates, Location
 - 3-5 bullet points (Action + What + How + Result)
+
+TRAINING
+[Selected training programs, reverse chronological]
+- Title, Company, Dates, Location
+- Brief description and technologies
 
 PROJECTS
 [Selected projects that strengthen the match]
@@ -155,10 +169,29 @@ LANGUAGES
 
 ## Language
 
+**PATTERN:** IF job posting language (Deskripsi Pekerjaan / Job Description) is in Indonesian, THEN use Indonesian for CV. ELSE use English.
+
 - **Default**: English
-- **Use Indonesian** if user requests or job posting is in Indonesian
-- **Use `profile.id`** for Indonesian version
-- **English level**: B2 — keep sentences simple and natural, avoid overly complex phrasing
+- **Use Indonesian** if job posting is in Indonesian (Bahasa Indonesia)
+- **Use `profile.id`** for Indonesian version (from `profile-summary.md`)
+- **Use `profile.en`** for English version
+- **English level**: B2 — keep sentences simple and natural, avoid overly complex phasing
+
+**Detection Rule:**
+- Check the first line of "Deskripsi Pekerjaan" or "Job Description"
+- If it contains Indonesian words (like "Memahami", "Memiliki", "Terbiasa", "Kualifikasi", "Pengalaman"), use Indonesian
+- If it contains English words (like "Understanding", "Experience", "Qualification"), use English
+- Default to English if uncertain or mixed content
+
+**Language Proficiency Translation:**
+- Indonesian: Use "Native", NOT "Bahasa Ibu" or "Bahasa Mother"
+- English: Use "Professional Working Proficiency (B1)" per master.json
+
+**Accuracy Rules (NON-NEGOTIABLE):**
+- ALWAYS use "Native" for Indonesian language proficiency, NOT "Bahasa Ibu" or "Bahasa Mother"
+- NEVER include FastAPI unless explicitly in master.json
+- ALWAYS verify technology stack against master.json before including
+- ALWAYS ask user to confirm BEFORE including honors like "Cum Laude" or "Graduated with Honors" - never assume
 
 ## Examples
 

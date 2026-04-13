@@ -1,10 +1,11 @@
 #!/bin/bash
 # Build script for CV generation
 # Usage: ./scripts/build.sh [job-name]
-# Example: ./scripts/build.sh it-support-vista-jaya-raya
+# Example: ./scripts/build.sh service-desk-engineer
 #
 # Each job gets its own folder: output/targeted/{job-name}/
-# Contains: .tex, .md, .pdf (build artifacts cleaned)
+# Output files: VS-Patabuga_{job-name}.{md,tex,pdf}
+# File naming: {FullName}_{PositionInKebabCase}
 
 set -e
 

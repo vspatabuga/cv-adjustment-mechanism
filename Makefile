@@ -3,7 +3,7 @@
 # Default: build general CV
 general: build
 
-# Build a targeted CV (usage: make cv JOB=it-support-vista-jaya-raya)
+# Build a targeted CV (usage: make cv JOB=service-desk-engineer)
 cv:
 	@bash scripts/build.sh $(JOB)
 
